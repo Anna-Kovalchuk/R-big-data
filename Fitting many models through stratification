@@ -1,0 +1,7 @@
+“How does life expectancy change over time for each country?”
+library(modelr)
+library(tidyverse)
+install.packages("gapminder")
+library(gapminder)
+ggplot(gapminder, aes(year, lifeExp, group = country)) +
+    geom_line(alpha = 0.25)
