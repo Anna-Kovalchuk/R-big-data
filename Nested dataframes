@@ -1,0 +1,10 @@
+library(gapminder)
+data(gapminder)
+gapminder
+gapminder %>% filter(country == "Afghanistan") %>% nrow()
+gapminder.nested  <- gapminder %>% 
+  group_by(country, continent) %>% 
+  nest()
+gapminder.nested
+gapminder.nested[1,]
+gapminder.nested$data[1]
