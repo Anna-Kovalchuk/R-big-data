@@ -1,0 +1,8 @@
+data("chickwts")
+chickwts  <- as_tibble(chickwts)
+chickwts
+ggplot(chickwts,aes(feed, weight)) + geom_boxplot()
+chickwts.lm  <- lm(weight ~ feed, data = chickwts)
+summary(chickwts.lm)
+anova(chickwts.lm)
+
