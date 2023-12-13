@@ -1,0 +1,17 @@
+gapminder.model
+gapminder.model$coef[1]
+gapminder.coef  <- gapminder.model %>% unnest(coef)
+gapminder.coef
+gapminder.coef %>% 
+  mutate(term = fct_recode(term, 
+                           Intercept = "(Intercept)", 
+                           Slope = "year")) %>% 
+  ggplot(aes(estimate, fill = term)) + 
+  geom_density(show.legend = FALSE, alpha = 0.5) + 
+  geom_histogram(col = "black", fill = "lightgrey",
+                 alpha = 0.5,
+                 aes(y = ..density..)) + 
+  facet_wrap(~term, scales = "free") + 
+  scale_fill_brewer(palette = "Set1") + 
+  theme_minimal() + 
+  labs(y = NULL, x = "Estimate")
