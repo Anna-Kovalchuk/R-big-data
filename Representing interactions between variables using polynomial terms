@@ -1,0 +1,10 @@
+library(mlbench)
+data("BostonHousing2")
+BostonHousing2 <- as_tibble(BostonHousing2)
+BostonHousing2
+BostonHousing2.lm  <- lm(medv ~ rm, data = BostonHousing2)
+summary(BostonHousing2.lm)
+ggplot(BostonHousing2,mapping = aes(rm,medv)) + 
+  geom_point(aes(color = chas)) + 
+  geom_smooth(method = 'lm', mapping = aes(color=chas))
+summary(lm(medv ~ rm + chas + rm:chas, data = BostonHousing2))
