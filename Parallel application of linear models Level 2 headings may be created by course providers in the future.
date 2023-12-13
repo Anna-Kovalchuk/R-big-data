@@ -1,0 +1,8 @@
+country_model <- function(df) {
+  lm(lifeExp ~ year, data = df)
+}
+gapminder.model  <- gapminder.nested %>% 
+  mutate(model = map(data, country_model), 
+         coef = map(model, broom::tidy))
+gapminder.model$model[[1]]
+gapminder.model$coef[[1]]
