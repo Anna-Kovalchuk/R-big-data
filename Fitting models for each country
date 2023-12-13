@@ -1,0 +1,4 @@
+au <- filter(gapminder, country == "Australia")
+ggplot(au,aes(year, lifeExp)) + geom_line()
+au.lm <- lm(lifeExp ~ year, data = au)
+summary(au.lm)
