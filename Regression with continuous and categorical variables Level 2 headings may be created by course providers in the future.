@@ -1,0 +1,8 @@
+library(mlbench)
+data("BostonHousing2")
+BostonHousing2 <- as_tibble(BostonHousing2)
+BostonHousing2
+BostonHousing2.lm  <- lm(medv ~ rm, data = BostonHousing2)
+summary(BostonHousing2.lm)
+BostonHousing2.lm2  <- lm(medv ~ rm + chas, data = BostonHousing2)
+summary(BostonHousing2.lm2)
