@@ -1,0 +1,14 @@
+library(tidyverse)
+AdX_team  <- tribble(
+  ~Person, ~Pet, 
+  "Lewis", "Cat",
+  "Sash", "Cat",
+  "David", "Dog",
+  "Jono", "Rabbit",
+  "Dee", "Rabbit",
+  "Alex", "Dog"
+)
+AdX_team  <- AdX_team %>% mutate(Pet = factor(Pet))
+AdX_team
+library(modelr)
+model_matrix(AdX_team,~Pet)
