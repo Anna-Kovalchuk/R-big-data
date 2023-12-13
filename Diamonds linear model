@@ -1,1 +1,13 @@
 data(diamonds)
+diamonds
+diamonds.lm  <- lm(log(price) ~ log(carat), data = diamonds)
+summary(diamonds.lm)
+ggplot(diamonds,aes(carat)) + geom_bar()
+plot(diamonds.lm, which = 3)
+plot(diamonds.lm, which = 2)
+?diamonds
+ggplot(diamonds,mapping = aes(x,log(price))) + geom_hex()
+diamonds.lm2  <- lm(log(price) ~ log(carat) + x, data = diamonds)
+summary(diamonds.lm2)
+## Residual standard error: 0.2624 on 53937 degrees of freedom
+## Multiple R-squared:  0.9331, Adjusted R-squared:  0.9331 
