@@ -1,0 +1,9 @@
+install.packages("glmx")
+library(glmx)
+data("BeetleMortality")
+as_tibble(BeetleMortality)
+BeetleMortality$prop_died <- BeetleMortality$died/BeetleMortality$n
+# Load the ggplot2 library
+library(ggplot2)
+ggplot(BeetleMortality,aes(dose,prop_died)) + geom_point()
+install.packages("ggplot2")
