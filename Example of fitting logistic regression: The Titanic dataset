@@ -1,0 +1,13 @@
+install.packages("tibble")
+# Load the tibble library
+library(tibble)
+as_tibble(titanic::titanic_train)
+install.packages("titanic")
+# Load the titanic library
+library(titanic)
+# Load the titanic_train dataset
+data("titanic_train")
+# Check the column names to ensure 'Survived', 'Age', and 'Sex' are present
+colnames(titanic_train)
+# Fit the logistic regression model
+titanic.glm <- glm(Survived ~ Age + Sex, family = binomial(), data = titanic_train)
